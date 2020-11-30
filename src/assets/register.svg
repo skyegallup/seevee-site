@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 640" width="640" height="640">
+   <path d="M 150 220
+            A 20 20 0 0 1 170 200
+            H 1000
+            V 250
+            H 150"
+         fill="#4b5563"/>
+   <path d="M 150 250
+            V 1000
+            H 320
+            V 250"
+         fill="#374151"/>
+   <path d="M 320 250
+            H 1000
+            V 1000
+            H 320"
+         fill="#1f2937"/>
+   
+   <circle cx="180" cy="225" r="10" fill="#1f2937"/>
+   <circle cx="210" cy="225" r="10" fill="#831843"/>
+   <circle cx="240" cy="225" r="10" fill="#F472B6"/>
+
+   <rect x="350" height="20" ry="10" fill="#F472B6" width="140" y="280"/>
+   <rect x="350" height="20" ry="10" fill="#F472B6" width="190" y="315"/>
+   <rect x="350" height="20" ry="10" fill="#F472B6" width="110" y="350"/>
+</svg>
+
