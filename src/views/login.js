@@ -36,7 +36,7 @@ function Login() {
                 <TextInput type="text" value={username} onChange={setUsername} classes="mb-4" />
 
                 <label>Password</label>
-                <TextInput type="text" value={password} onChange={setPassword} classes="mb-4" />
+                <TextInput type="password" value={password} onChange={setPassword} classes="mb-4" />
 
                 <Button type="submit" classes="w-1/3 mx-auto">Login</Button>
             </form>
