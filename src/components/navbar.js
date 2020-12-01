@@ -8,7 +8,12 @@ import { isAuthenticated } from '../utils/auth';
 function Navbar() {
     let authLinks;
     if (isAuthenticated()) {
-        authLinks = <NavbarLink to="/logout">Logout</NavbarLink>;
+        authLinks = (
+            <React.Fragment>
+                <NavbarLink to="/create">Create</NavbarLink>
+                <NavbarLink to="/logout">Logout</NavbarLink>
+            </React.Fragment>
+        );
     } else {
         authLinks = (
             <React.Fragment>
@@ -32,19 +37,22 @@ function Navbar() {
 }
 
 function NavbarLink(props) {
-    let className = "h-full text-xl flex items-center px-4 text-white hover:text-pink-400 border-pink-400";
+    let className = "h-full text-xl flex items-center px-4 text-white hover:text-pink-400";
 
+    let indicator = undefined;
     let isMatch = useRouteMatch({
         path: props.to,
         exact: props.activeOnlyWhenExact
     });
     if (isMatch && !props.neverHighlight) {
-        className += " border-b-4";
+        className += " relative";
+        indicator = <span className="absolute bottom-0 h-1 left-0 w-full bg-pink-400"></span>;
     }
 
     return (
         <Link to={ props.to } className={ className }>
             { props.children }
+            { indicator }
         </Link>
     );
 }
