@@ -56,7 +56,7 @@ function Index() {
 
     return (
         <PrimaryLayout>
-            <div className="w-1/4 flex flex-col items-stretch p-4 bg-gray-200 text-lg">
+            <div className="flex-shrink-0 w-1/4 p-4 bg-gray-200 text-lg">
                 <p>Popular Languages:</p>
                 <ul className="text-pink-400 ml-4">
                     <li>JavaScript</li>
@@ -64,7 +64,7 @@ function Index() {
                     <li>Java</li>
                 </ul>
             </div>
-            <div className="flex-1 flex flex-col items-stretch">
+            <div className="flex flex-col flex-1 overflow-auto">
                 { snippetCards.length === 0 ? <p>No snippets found.</p> : snippetCards }
             </div>
         </PrimaryLayout>

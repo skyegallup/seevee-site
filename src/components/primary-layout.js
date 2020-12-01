@@ -5,9 +5,9 @@ import Navbar from './navbar';
 
 function PrimaryLayout({ children }) {
     return (
-        <div className="min-h-screen">
+        <div className="h-screen min-h-screen flex flex-col">
             <Navbar />
-            <div className="flex items-stretch mt-16">
+            <div className="flex flex-1 overflow-auto">
                 { children }
             </div>
         </div>
