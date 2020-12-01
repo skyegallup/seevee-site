@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import 'tailwindcss/tailwind.css';
 
-import SidebarItem from './components/sidebar-item';
 import SnippetCard from './components/snippet-card';
 import PrimaryLayout from './components/primary-layout';
 
@@ -57,10 +56,13 @@ function Index() {
 
     return (
         <PrimaryLayout>
-            <div className="w-1/4 flex flex-col items-stretch">
-                <SidebarItem>Test 1</SidebarItem>
-                <SidebarItem>Test 2</SidebarItem>
-                <SidebarItem>Test 3</SidebarItem>
+            <div className="w-1/4 flex flex-col items-stretch p-4 bg-gray-200 text-lg">
+                <p>Popular Languages:</p>
+                <ul className="text-pink-400 ml-4">
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                    <li>Java</li>
+                </ul>
             </div>
             <div className="flex-1 flex flex-col items-stretch">
                 { snippetCards.length === 0 ? <p>No snippets found.</p> : snippetCards }

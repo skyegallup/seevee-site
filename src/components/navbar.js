@@ -22,7 +22,7 @@ function Navbar() {
         <div className="bg-gray-900 fixed w-full z-10 top-0">
             <div className="flex h-16 mx-auto px-8">
                 <NavbarLink to="/" neverHighlight>
-                    <span className="text-pink-400">SeeVee</span>
+                    <span className="text-pink-400 text-3xl">SeeVee</span>
                 </NavbarLink>
                 <div className="mx-auto"></div>
                 { authLinks }

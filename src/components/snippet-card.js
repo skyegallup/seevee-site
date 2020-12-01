@@ -30,11 +30,9 @@ function SnippetCard({ id, data }) {
     }
 
     return (
-        <Link to={ "/snippet/" + id }>
-            <div className="mx-6 mt-6 p-4 rounded-xl bg-gray-200 hover:bg-gray-300">
-                <p className="mb-2"><span className="text-2xl mr-1">{ data.name }</span> by <UserLink username="test1" /></p>
-                <p>{ desc }{ truncateToggler }</p>
-            </div>
+        <Link to={ "/snippet/" + id } className="mx-6 my-4 p-4 rounded-xl bg-gray-200 hover:bg-gray-300">
+            <p className="mb-2"><span className="text-2xl mr-1">{ data.name }</span> by <UserLink username="test1" /></p>
+            <p>{ desc }{ truncateToggler }</p>
         </Link>
     );
 }

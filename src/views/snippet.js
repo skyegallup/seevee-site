@@ -25,7 +25,7 @@ function Snippet(props) {
         <PrimaryLayout>
             <div className="w-2/3 mx-auto pt-8">
                 <p className="text-4xl mb-1">{ data.name }</p>
-                <p className="mb-4">Uploaded by <UserLink username="test1" /> on { moment(data.uploaded).format('MMMM  Mo, YYYY') }</p>
+                <p className="mb-4">Uploaded by <UserLink username="test1" /> on { moment(data.uploaded).format('MMMM  Do, YYYY') }</p>
                 <pre><code>{ data.content }</code></pre>
             </div>
         </PrimaryLayout>
