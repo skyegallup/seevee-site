@@ -4,18 +4,20 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import 'tailwindcss/tailwind.css';
 
-import Navbar from './components/navbar';
 import SidebarItem from './components/sidebar-item';
 import SnippetCard from './components/snippet-card';
+import PrimaryLayout from './components/primary-layout';
 
 import Register from './views/register';
 import Login from './views/login';
 import Logout from './views/logout';
+import Snippet from './views/snippet';
 
 function App() {
     return (
         <BrowserRouter>
             <Switch>
+                <Route path="/snippet/:id" component={Snippet} />
                 <Route path='/logout'>
                     <Logout />
                 </Route>
@@ -49,25 +51,22 @@ function Index() {
 
     let snippetCards = snippets.map(snippet => <SnippetCard 
         key={ snippet._id }
-        title={ snippet.name }
-        description={ snippet.description }
+        id={ snippet._id }
+        data={ snippet }
     />);
 
     return (
-        <div className="min-h-screen">
-            <Navbar />
-            <div className="flex items-stretch mt-16">
-                <div className="w-1/4 flex flex-col items-stretch">
-                    <SidebarItem>Test 1</SidebarItem>
-                    <SidebarItem>Test 2</SidebarItem>
-                    <SidebarItem>Test 3</SidebarItem>
-                </div>
-                <div className="flex-1 flex flex-col items-stretch">
-                    { snippetCards.length === 0 ? <p>No snippets found.</p> : snippetCards }
-                </div>
+        <PrimaryLayout>
+            <div className="w-1/4 flex flex-col items-stretch">
+                <SidebarItem>Test 1</SidebarItem>
+                <SidebarItem>Test 2</SidebarItem>
+                <SidebarItem>Test 3</SidebarItem>
             </div>
-        </div>
-    )
+            <div className="flex-1 flex flex-col items-stretch">
+                { snippetCards.length === 0 ? <p>No snippets found.</p> : snippetCards }
+            </div>
+        </PrimaryLayout>
+    );
 }
 
 // ==============
