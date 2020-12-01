@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 
 import FullscreenForm from '../components/fullscreen-form';
 import { setAuthCookie } from '../utils/auth';
+import { TextInput } from '../components/inputs';
+import Button from '../components/button';
 
 import axios from 'axios';
 
@@ -31,21 +33,12 @@ function Login() {
             <p className="text-4xl text-center my-14">Welcome back!</p>
             <form onSubmit={ handleSubmit } className="flex flex-col mx-8">
                 <label>Username</label>
-                <input
-                    type="text" value={username} onChange={ e => setUsername(e.target.value) }
-                    className="bg-gray-200 h-10 p-2 mb-4 border-pink-900 invalid:border-2"
-                ></input>
+                <TextInput type="text" value={username} onChange={setUsername} classes="mb-4" />
 
                 <label>Password</label>
-                <input
-                    type="password" value={password} onChange={ e => setPassword(e.target.value) }
-                    className="bg-gray-200 h-10 p-2 mb-4 border-pink-900 invalid:border-2"
-                ></input>
+                <TextInput type="text" value={password} onChange={setPassword} classes="mb-4" />
 
-                <input
-                    type="submit" value="Login"
-                    className="w-1/3 py-2 mx-auto"
-                />
+                <Button type="submit" classes="w-1/3 mx-auto">Login</Button>
             </form>
         </FullscreenForm>
     );
