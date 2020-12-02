@@ -21,14 +21,29 @@ function Snippet(props) {
             .then(data => setData(data));
     }, [props.match.params.id]);
 
+    let lines = [];
+    if (data.content) {
+        lines = data.content.split(/\r?\n/).map((i) => {
+            if (i === "") {
+                return <br/>;
+            } else {
+                return <p>{ i }</p>;
+            }
+        });
+    }
+
     return (
         <PrimaryLayout>
             <div className="w-2/3 mx-auto pt-8">
                 <p className="text-4xl mb-1">{ data.name }</p>
                 <p className="mb-4">Uploaded by <UserLink username="test1" /> on { moment(data.uploaded).format('MMMM  Do, YYYY') }</p>
                 <pre className="my-6 p-4 bg-gray-200 rounded-lg flex">
-                    <code className="w-1/12 text-right pr-2 border-r-2 border-gray-400">1</code>
-                    <code className="flex-1 pl-2">{ data.content }</code>
+                    <code className="w-1/12 text-right pr-2 border-r-2 border-gray-400">
+                        { lines.map((_, idx) => <p>{ idx + 1 }</p>) }
+                    </code>
+                    <code className="flex-1 pl-2">
+                        { lines }
+                    </code>
                 </pre>
             </div>
         </PrimaryLayout>
