@@ -61,6 +61,7 @@ function Snippet(props) {
                         { data.content }
                     </code>
                 </pre>
+                <p>{ data.description }</p>
             </div>
         </PrimaryLayout>
     );
