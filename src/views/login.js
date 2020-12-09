@@ -6,8 +6,6 @@ import { setAuthCookie } from '../utils/auth';
 import { TextInput } from '../components/inputs';
 import Button from '../components/button';
 
-import axios from 'axios';
-
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -17,15 +15,22 @@ function Login() {
     function handleSubmit(event) {
         event.preventDefault();
         
-        axios.post('/users/login', {
-            username: username,
-            password: password
-        }).then((res) => {
-            setAuthCookie(res.data.token);
-            history.push('/');
-        }).catch((err) => {
-            console.log(err);
-        });
+        fetch('/users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password,
+            }),
+        })
+            .then(res => res.json())
+            .then(data => {
+                setAuthCookie(data.token);
+                history.push('/');
+            })
+            .catch(err => console.log(err));
     }
 
     return (

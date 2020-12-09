@@ -5,8 +5,6 @@ import FullscreenForm from '../components/fullscreen-form';
 import { TextInput, ValidatedPasswordInput } from '../components/inputs';
 import Button from '../components/button';
 
-import axios from 'axios';
-
 
 function Register() {
     const [username, setUsername] = useState('');
@@ -17,15 +15,19 @@ function Register() {
     function handleSubmit(event) {
         event.preventDefault();
 
-        axios.post('/users/register', {
-            username: username,
-            password: password,
-            email: email
-        }).then((res) => {
-            history.push('/');
-        }).catch((err) => {
-            console.log(err);
-        });
+        fetch('/users/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password,
+                email: email,
+            }),
+        })
+            .then(res => history.push('/'))
+            .catch(err => console.log(err));
     }
 
     return (

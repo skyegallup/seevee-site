@@ -7,7 +7,6 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
     "autoprefixer": "^10.0.4",
-    "axios": "^0.21.0",
     "chokidar-cli": "^2.1.0",
     "craco": "0.0.3",
     "js-cookie": "^2.2.1",

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
 
 import PrimaryLayout from '../components/primary-layout';
 import { TextInput, TextArea } from '../components/inputs';
@@ -18,23 +17,21 @@ function Create() {
     function handleSubmit(event) {
         event.preventDefault();
 
-        // TODO: replace with fetch()
-        axios.post('/snippets/add',
-            {
+        fetch('/snippets/add', {
+            method: 'POST',
+            headers: {
+                Authorization: getAuthCookie(),
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
                 name: name,
                 content: content,
                 description: description
-            },
-            {
-                headers: {
-                    Authorization: getAuthCookie(),
-                }
-            }
-        ).then((res) => {
-            history.push('/snippet/' + res.data._id);
-        }).catch((err) => {
-            console.log(err);
-        });
+            }),
+        })
+            .then(res => res.json())
+            .then(data => history.push('/snippet/' + data._id))
+            .catch(err => console.log(err));
     }
 
     return (
