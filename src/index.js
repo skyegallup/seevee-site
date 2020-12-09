@@ -11,11 +11,16 @@ import Register from './views/register';
 import Login from './views/login';
 import Logout from './views/logout';
 import Snippet from './views/snippet';
+import Create from './views/create';
+
 
 function App() {
     return (
         <BrowserRouter>
             <Switch>
+                <Route path='/create'>
+                    <Create />
+                </Route>
                 <Route path="/snippet/:id" component={Snippet} />
                 <Route path='/logout'>
                     <Logout />
