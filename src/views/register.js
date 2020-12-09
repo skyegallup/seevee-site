@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import FullscreenForm from '../components/fullscreen-form';
 import { TextInput, ValidatedPasswordInput } from '../components/inputs';
 import Button from '../components/button';
+import { setAuthCookie } from '../utils/auth';
 
 
 function Register() {
@@ -26,7 +27,11 @@ function Register() {
                 email: email,
             }),
         })
-            .then(res => history.push('/'))
+            .then(res => res.json())
+            .then(data => {
+                setAuthCookie(data.token);
+                history.push('/');
+            })
             .catch(err => console.log(err));
     }
 
