@@ -49,7 +49,7 @@ function Snippet(props) {
                 <div className="flex items-center mb-4">
                     <div className="flex-grow">
                         <p className="text-4xl mb-1">{ data.name }</p>
-                        <p>Uploaded by <UserLink username="test1" /> on { moment(data.uploaded).format('MMMM  Do, YYYY') }</p>
+                        <p>Uploaded by <UserLink data={ data.creator } /> on { moment(data.uploaded).format('MMMM  Do, YYYY') }</p>
                     </div>
                     <Button onClick={ onCopyButton } >Copy</Button>
                 </div>

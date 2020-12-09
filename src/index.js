@@ -72,6 +72,7 @@ function Index() {
             <div className="flex flex-col flex-1 overflow-auto">
                 { snippetCards.length === 0 ? <p>No snippets found.</p> : snippetCards }
             </div>
+            {/* TODO: bottom of overflow has no padding */}
         </PrimaryLayout>
     );
 }
