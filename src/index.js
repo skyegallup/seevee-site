@@ -72,7 +72,10 @@ function Index() {
             <div className="flex flex-col flex-1 overflow-auto">
                 { snippetCards.length === 0 ? <p>No snippets found.</p> : snippetCards }
             </div>
-            {/* TODO: bottom of overflow has no padding */}
+            {/* 
+                Firefox won't show the bottom padding of the last snippet card due to a
+                bug in their rendering. This works fine on Chromium-based browsers.
+            */}
         </PrimaryLayout>
     );
 }
